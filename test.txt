@@ -1,0 +1,54 @@
+Script started on 2020-09-17 17:03:38-06:00 [TERM="xterm-256color" TTY="/dev/pts/3" COLUMNS="80" LINES="24"]
+(base) ]0;songhao@Leo-Y7000: ~/Documents/Repos/cppMake[01;32msonghao@Leo-Y7000[00m:[01;34m~/Documents/Repos/cppMake[00m$ gdb [K[K[K[Kmake check
+cc    -I/usr/local/include -g -c main.c
+cc    -I/usr/local/include -g -c functions.c
+cc    -L/usr/local/lib -o exec main.o functions.o
+exec has been created
+./exec
+How big is the array?50
+min value in array is: 8
+(base) ]0;songhao@Leo-Y7000: ~/Documents/Repos/cppMake[01;32msonghao@Leo-Y7000[00m:[01;34m~/Documents/Repos/cppMake[00m$ gdb ./exec
+[35;1m[35;1mGNU gdb [m[35;1m(Ubuntu 9.1-0ubuntu1) [m[35;1m9.1[m[35;1m
+[m[mCopyright (C) 2020 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from [32m./exec[m...
+(gdb) break main.c:21
+Breakpoint 1 at [34m0x12e2[m: file [32mmain.c[m, line 21.
+(gdb) run
+Starting program: /home/songhao/Documents/Repos/cppMake/exec 
+How big is the array?50
+
+Breakpoint 1, [33mmain[m ([36margc[m=1, [36margv[m=0x7fffffffde98) at [32mmain.c[m:21
+21	    if (findAndReturnMin (array, size, & min) != 0 )
+(gdb) print min
+$1 = 9999
+(gdb) step
+[33mfindAndReturnMin[m ([36marray[m=0x555555559ac0, [36mlength[m=50, [m
+    [m[36mmin[m=0x55555555536a <initialize+45>) at [32mfunctions.c[m:41
+41	{
+(gdb) print m[K*([Kmin
+$2 = 1221616456
+(gdb) print *(min)
+$3 = 1221616456
+(gdb) quit
+A debugging session is active.
+
+	Inferior 1 [process 12975] will be killed.
+
+Quit anyway? (y or n) y
+(base) ]0;songhao@Leo-Y7000: ~/Documents/Repos/cppMake[01;32msonghao@Leo-Y7000[00m:[01;34m~/Documents/Repos/cppMake[00m$ exit
+exit
+
+Script done on 2020-09-17 17:04:36-06:00 [COMMAND_EXIT_CODE="0"]
