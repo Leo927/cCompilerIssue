@@ -16,7 +16,7 @@ int initialize (int *array, int length)
     srand(getpid());
     int i;
 
-    for (i = 1; i <= length; i ++)
+    for (i = 0; i < length; i ++)
     {
         array [i] = rand()%500 +1;
     }
@@ -37,16 +37,16 @@ int initialize (int *array, int length)
  *     0: on success
  *     non-zero: on an error
  */
-int findAndReturnMin (int *array, int length, int min)
+int findAndReturnMin (int *array, int length, int* min)
 {
     int i;
 
-    min = array [0];
-    for (i = 1; i <= length; i ++)
+    *min = array [0];
+    for (i = 0; i < length; i ++)
     {
-        if (min < array [i])
+        if (array[i] < *min)
         { 
-            min = array [i];
+            *min = array [i];
         }
     }
 
